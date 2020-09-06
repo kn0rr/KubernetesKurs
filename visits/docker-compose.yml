@@ -1,0 +1,13 @@
+version: '3'
+services: 
+    redis-server:
+        # Specify image instead of own build dokerfile
+        image: 'redis'
+    node-app:
+        # Restart policy:
+        restart: always
+        # Specify dockerfile in the directory
+        build: .
+        # Specify ports <localPort>:<ContainerPort>
+        ports:
+            - "4001:8081"
